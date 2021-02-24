@@ -2,13 +2,13 @@ package eci.arsw.covidanalyzer.service;
 
 import eci.arsw.covidanalyzer.model.Result;
 import eci.arsw.covidanalyzer.model.ResultType;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-@Service("ICovidAggregateServiceStub")
+@Component("ICovidAggregateServiceStub")
 public class ICovidAggregateServiceStub implements ICovidAggregateService {
     private List<Result> resultList = new CopyOnWriteArrayList<>();
 

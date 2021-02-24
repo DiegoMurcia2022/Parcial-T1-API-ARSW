@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 public class CovidAggregateController {
     @Autowired
@@ -70,10 +72,9 @@ public class CovidAggregateController {
     //TODO: Implemente el método.
 
     @RequestMapping(value = "/covid/result/persona/{id}", method = RequestMethod.PUT)
-    public ResponseEntity savePersonaWithMultipleTests() {
-        //TODO
-        covidAggregateService.getResult(ResultType.TRUE_POSITIVE);
-        return null;
+    public ResponseEntity<?> savePersonaWithMultipleTests(@RequestBody UUID id, @RequestBody ResultType resultType) {
+        covidAggregateService.upsertPersonWithMultipleTests(id, resultType);
+        return  new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
     
 }

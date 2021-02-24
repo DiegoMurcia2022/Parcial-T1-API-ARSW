@@ -10,14 +10,28 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 @Service("ICovidAggregateServiceStub")
 public class ICovidAggregateServiceStub implements ICovidAggregateService {
+    private List<Result> resultList = new CopyOnWriteArrayList<>();
+
     @Override
-    public boolean aggregateResult(Result result, ResultType type) {
-        return false;
+    public void aggregateResult(Result result, ResultType type) {
+        for (Result r:resultList) {
+            if (r.equals(result)) {
+                r.setResultType(type);
+            }
+        }
     }
 
     @Override
-    public boolean getResult(ResultType type) {
-        return false;
+    public List<Result> getResult(ResultType type) {
+        List<Result> resultsByType = new CopyOnWriteArrayList<>();
+
+        for (Result r:resultList) {
+            if (r.getResultType().equals(type)) {
+                resultsByType.add(r);
+            }
+        }
+
+        return resultsByType;
     }
 
 

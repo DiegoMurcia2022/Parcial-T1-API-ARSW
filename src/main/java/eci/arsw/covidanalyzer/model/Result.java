@@ -13,9 +13,24 @@ public class Result {//<editor-fold desc="properties">
     private boolean result;
     private double testSpecifity;
     private ResultType resultType;
+    private int testRealize;
 
     public Result() {
 
+    }
+
+    public Result(UUID id, String firstName, String lastName, String gender, String email, String birthString, String testString, boolean result, double testSpecifity, ResultType resultType, int testRealize) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+        this.birthString = birthString;
+        this.testString = testString;
+        this.result = result;
+        this.testSpecifity = testSpecifity;
+        this.resultType = resultType;
+        this.testRealize = testRealize;
     }
 
     //<editor-fold desc="getters">
@@ -115,6 +130,14 @@ public class Result {//<editor-fold desc="properties">
 
     public void setResultType(ResultType resultType) {
         this.resultType = resultType;
+    }
+
+    public int getTestRealize() {
+        return testRealize;
+    }
+
+    public void setTestRealize(int testRealize) {
+        this.testRealize = testRealize;
     }
 
     //<editor-fold desc="Equality Methods">
